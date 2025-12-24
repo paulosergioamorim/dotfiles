@@ -77,3 +77,4 @@ fi
 # dotnet 
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
+export PATH="$PATH:/home/paulosergio/.dotnet/tools
