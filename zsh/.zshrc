@@ -67,12 +67,12 @@ esac
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# TMUX INIT
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    # Tenta conectar a qualquer sessão existente (silenciando erros)
-    # Se falhar (||), cria uma nova
-    tmux attach || tmux new
-fi
+# # TMUX INIT
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#     # Tenta conectar a qualquer sessão existente (silenciando erros)
+#     # Se falhar (||), cria uma nova
+#     tmux attach || tmux new
+# fi
 
 # dotnet 
 export DOTNET_ROOT=$HOME/dotnet
