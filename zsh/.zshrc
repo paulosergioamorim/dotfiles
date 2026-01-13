@@ -1,8 +1,9 @@
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=5000
-PROMPT="%F{white}%n%f@%F{green}%m%f:%F{blue}%~%f $ "
-PAGER=less
+export HISTFILE=~/.zsh_history
+export HISTSIZE=5000
+export SAVEHIST=5000
+export PROMPT="%F{white}%n%f@%F{green}%m%f:%F{blue}%~%f $ "
+export EDITOR=nvim
+export PAGER=less
 
 bindkey -e # emacs keybind
 
@@ -24,6 +25,8 @@ setopt CORRECT
 alias ls="ls --color=auto"
 alias ll="ls -larth --color=auto"
 alias grep="grep --color=auto"
+alias q="exit"
+alias reload="source ~/.zshrc"
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -49,3 +52,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 export PATH="$PATH:/home/paulosergio/.dotnet/tools"
+
+# zoxide setup
+eval "$(zoxide init zsh)"
