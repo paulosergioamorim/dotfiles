@@ -69,6 +69,9 @@ input type:keyboard {
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    # Start a browser
+    bindsym $mod+Backspace exec $browser
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -222,6 +225,6 @@ bindsym $mod+r mode "resize"
 #     status_command waybar
 # }
 
-exec_always killall waybar; waybar
+exec waybar
 
 include /etc/sway/config.d/*
