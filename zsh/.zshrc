@@ -53,5 +53,8 @@ export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 export PATH="$PATH:/home/paulosergio/.dotnet/tools"
 
+# fzf setup
+source <(fzf --zsh)
+
 # zoxide setup
 eval "$(zoxide init zsh)"
