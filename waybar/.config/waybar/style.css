@@ -40,7 +40,7 @@
 @define-color pulseaudio-color @yellow;
 @define-color pulseaudio-muted-color @yellow;
 @define-color backlight-color @yellow;
-@define-color disk-color @cyan;
+@define-color disk-color @green;
 @define-color uptime-color @green;
 @define-color updates-color @orange;
 @define-color quote-color @green;
@@ -51,7 +51,7 @@
     /* Base styling for all modules */
     border: none;
     border-radius: 0;
-    font-family: "Fira Code Nerd Font";
+    font-family: "JetBrainsMonoNL Nerd Font Mono";
     font-size: 14px;
     min-height: 0;
 }
