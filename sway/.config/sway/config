@@ -215,17 +215,9 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # # Special key to take a screenshot with grim
-    # bindsym Print exec grim
-    bindsym Print exec flameshot gui
-
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     status_command waybar
-# }
+    # Special key to take a screenshot with grim
+    bindsym Print exec grim
+    bindsym Shift+Print exec slurp | grim -g -
 
 exec waybar
 
