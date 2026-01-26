@@ -25,8 +25,6 @@ setopt CORRECT
 alias ls="ls --color=auto"
 alias ll="ls -larth --color=auto"
 alias grep="grep --color=auto"
-alias q="exit"
-alias reload="source ~/.zshrc"
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -40,18 +38,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# bun completions
-[ -s "/home/paulosergio/.bun/_bun" ] && source "/home/paulosergio/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# dotnet 
-export DOTNET_ROOT=$HOME/dotnet
-export PATH=$PATH:$HOME/dotnet
-export PATH="$PATH:/home/paulosergio/.dotnet/tools"
 
 # fzf setup
 source <(fzf --zsh)

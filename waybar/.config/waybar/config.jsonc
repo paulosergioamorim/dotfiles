@@ -4,7 +4,7 @@
     "height": 30,
     "spacing": 1,
     "margin": 0,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/quote"],
+    "modules-left": ["hyprland/workspaces", "sway/workspaces", "sway/mode", "custom/quote"],
     "modules-center": ["clock"], 
     "modules-right": ["pulseaudio", "backlight", "temperature", "cpu", "memory", "disk", "battery", "network"],
 
