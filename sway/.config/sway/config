@@ -38,8 +38,8 @@ output * mode 1920x1080@75Hz
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -i $bg' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 3600 'swaylock -f -i $bg' \
+         timeout 4000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -i $bg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -216,8 +216,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim - | wl-copy
-    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym Print exec grim
+    bindsym Shift+Print exec grim -g "$(slurp)"
 
 exec waybar
 
