@@ -16,8 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu wofi --show run -G
-set $browser zen-browser
+set $menu wofi -S run
 set $bg '/home/paulosergio/backgrounds/bcs-wall-end-scene.png'
 
 default_border pixel 2
@@ -25,11 +24,11 @@ default_border pixel 2
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $bg fill
+output * bg /home/paulosergio/backgrounds/bcs-wall-end-scene.png fill
 #
 # Example configuration:
 #
-output * mode 1920x1080@75Hz
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -44,21 +43,22 @@ exec swayidle -w \
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 #
 # Example configuration:
 #
-# input type:touchpad {
-#   dwt enabled
-#   tap enabled
-#   natural_scroll enabled
-#   middle_emulation enabled
-# }
+  input type:touchpad {
+      dwt disabled
+      tap enabled
+      natural_scroll enabled
+      middle_emulation enabled
+  }
 #
-input type:keyboard {
-  xkb_layout "br"
-}
+  input type:keyboard {
+      xkb_layout "br"
+  }
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
@@ -69,9 +69,6 @@ input type:keyboard {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-
-    # Start a browser
-    bindsym $mod+Backspace exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -202,7 +199,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 #
 # Utilities:
@@ -219,6 +215,23 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
     bindsym Shift+Print exec grim -g "$(slurp)"
 
-exec waybar
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+    height 30
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
 
 include /etc/sway/config.d/*
