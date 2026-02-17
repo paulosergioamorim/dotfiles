@@ -4,4 +4,9 @@ set tabstop=4
 set shiftwidth=4
 set smartcase
 set ignorecase
-
+set undofile
+set clipboard=unnamedplus
+set nocompatible
+filetype on
+syntax on
+colorscheme default
