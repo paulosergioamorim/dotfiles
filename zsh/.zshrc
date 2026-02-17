@@ -44,3 +44,18 @@ source <(fzf --zsh)
 
 # zoxide setup
 eval "$(zoxide init zsh)"
+
+tis () # tmux init session
+{
+    if [[ $# -eq 1 ]]; then
+        working_dir=$1
+    else
+        working_dir=$(find ~/programs ~/programs/ctjunior -mindepth 1 -maxdepth 1 -type d | fzf)
+    fi
+
+    if [[ -z $working_dir ]]; then
+        return
+    fi
+
+    tmux new -As $(basename $working_dir | tr . _) -c $working_dir
+}
