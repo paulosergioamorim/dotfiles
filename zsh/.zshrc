@@ -45,6 +45,10 @@ source <(fzf --zsh)
 # zoxide setup
 eval "$(zoxide init zsh)"
 
+if [[ -z "$TMUX" ]]; then
+    ln -f "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "$XDG_RUNTIME_DIR/wayland-tmux"
+fi
+
 tis () # tmux init session
 {
     if [[ $# -eq 1 ]]; then
