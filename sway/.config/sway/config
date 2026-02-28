@@ -21,10 +21,8 @@ set $bg '/home/paulosergio/backgrounds/bcs-wall-end-scene.png'
 
 default_border pixel 2
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/paulosergio/backgrounds/bcs-wall-end-scene.png fill
+output * bg $bg fill
+
 #
 # Example configuration:
 #
@@ -38,11 +36,11 @@ output * bg /home/paulosergio/backgrounds/bcs-wall-end-scene.png fill
 #
 exec swayidle -w \
          timeout 3600 'swaylock -f -i $bg' \
-         timeout 4000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 400 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -i $bg'
 #
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
+# This will lock your screen after 3600 seconds of inactivity, then turn off
+# your displays after another 400 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
@@ -87,7 +85,7 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
@@ -215,25 +213,11 @@ bindsym $mod+r mode "resize"
     bindsym Print exec grim
     bindsym Shift+Print exec grim -g "$(slurp)"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-#     height 30
-#
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%d - %H:%M'; do sleep 1; done
-#
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+# pgrep: na incialização
+# pkill: depois da inicialização 
+exec_always (pkill waybar || ! pgrep waybar) && waybar &
 
-exec_always pkill waybar ; waybar &
+# mesmo cursor do kde plasma
+seat seat0 xcursor_theme breeze_cursors 24
 
 include /etc/sway/config.d/*
