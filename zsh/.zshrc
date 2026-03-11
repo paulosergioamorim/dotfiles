@@ -27,6 +27,7 @@ alias ll="ls -larth --color=auto"
 alias grep="grep --color=auto"
 
 export PATH=$HOME/.local/bin:$PATH
+export PATH="$PATH:/home/paulosergio/.dotnet/tools"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
@@ -49,8 +50,8 @@ if [[ -z "$TMUX" && -n "$DISPLAY" ]]; then
     ln -f "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "$XDG_RUNTIME_DIR/wayland-tmux"
 fi
 
-tis () # tmux init session
-{
+# tmux init session
+function t() {
     if [[ $# -eq 1 ]]; then
         working_dir=$1
     else
@@ -62,4 +63,12 @@ tis () # tmux init session
     fi
 
     tmux new -As $(basename $working_dir | tr . _) -c $working_dir
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
