@@ -85,7 +85,7 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaymsg exit
+    bindsym $mod+Shift+e exit
 #
 # Moving around:
 #
@@ -217,7 +217,7 @@ bindsym $mod+r mode "resize"
 # pkill: depois da inicialização 
 exec_always (pkill waybar || ! pgrep waybar) && waybar &
 
-# mesmo cursor do kde plasma
-seat seat0 xcursor_theme breeze_cursors 24
+# habilitar numlock por padrão
+input type:keyboard xkb_numlock enabled
 
 include /etc/sway/config.d/*
