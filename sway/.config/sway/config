@@ -212,6 +212,8 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
     bindsym Shift+Print exec grim -g "$(slurp)"
+    bindsym $mod+bracketleft exec grim - | wl-copy
+    bindsym $mod+Shift+bracketleft exec grim -g "$(slurp)" - | wl-copy
 
 # pgrep: na incialização
 # pkill: depois da inicialização 
