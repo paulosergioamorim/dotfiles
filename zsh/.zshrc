@@ -1,7 +1,8 @@
 export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
 export SAVEHIST=5000
-export PROMPT="%F{white}%n%f@%F{green}%m%f:%F{blue}%~%f $ "
+export PROMPT=" %F{green}%~%f
+ $ "
 export EDITOR=nvim
 export PAGER=less
 
