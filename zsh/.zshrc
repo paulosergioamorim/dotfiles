@@ -11,7 +11,6 @@ bindkey -e # emacs keybind
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
-setopt SHARE_HISTORY
 
 autoload -Uz compinit && compinit
 autoload -U colors && colors
