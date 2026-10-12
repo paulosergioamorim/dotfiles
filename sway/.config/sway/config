@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu wofi -S run
+set $menu wofi -I -i -S drun
 set $bg '/home/paulosergio/backgrounds/bcs-wall-end-scene.png'
 
 default_border pixel 2
