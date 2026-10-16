@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Astah UML
+Comment=Modelagem de diagramas UML
+Exec=/home/paulosergio/.local/share/astah-uml/astah-uml %F
+TryExec=/home/paulosergio/.local/share/astah-uml/astah-uml
+Icon=/home/paulosergio/.local/share/astah-uml/astah-uml.png
+Terminal=false
+Categories=Development;IDE;
+Keywords=UML;diagram;modeling;
+StartupNotify=true

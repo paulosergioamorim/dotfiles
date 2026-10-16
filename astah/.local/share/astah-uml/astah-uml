@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+ASTAH_HOME=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export _JAVA_AWT_WM_NONREPARENTING=1
+cd "$ASTAH_HOME"
+exec /usr/lib/jvm/java-25-openjdk/bin/java -Xms16m -Xmx1024m \
+    "-Djava.library.path=$ASTAH_HOME/lib/rlm" \
+    -jar "$ASTAH_HOME/astah-uml.jar" "$@"
