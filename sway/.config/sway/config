@@ -237,3 +237,6 @@ exec_always (pkill waybar || ! pgrep waybar) && waybar &
 input type:keyboard xkb_numlock enabled
 
 include /etc/sway/config.d/*
+
+# Enable org.freedesktop.secrets on session init
+exec /usr/bin/kwalletd6
