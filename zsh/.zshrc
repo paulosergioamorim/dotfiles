@@ -27,7 +27,6 @@ alias ll="ls -larth --color=auto"
 alias grep="grep --color=auto"
 
 export PATH=$HOME/.local/bin:$PATH
-export PATH="$PATH:/home/paulosergio/.dotnet/tools"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # this loads nvm
@@ -45,10 +44,6 @@ source <(fzf --zsh)
 
 # zoxide setup
 eval "$(zoxide init zsh)"
-
-if [[ -z "$TMUX" && -n "$DISPLAY" ]]; then
-    ln -f "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" "$XDG_RUNTIME_DIR/wayland-tmux"
-fi
 
 # tmux init session
 function t() {
